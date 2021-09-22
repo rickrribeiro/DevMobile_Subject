@@ -28,6 +28,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             var intent = Intent(this, AboutActivity::class.java)
             startActivity(intent)
         }
-
+        if (p0.id == R.id.button1){
+            var intentConfig = Intent(this, ConfigActivity::class.java)
+            startActivity(intentConfig)
+        }
     }
 }
