@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Second_activity</string>
+    <string name="button1_txt">Button 1</string>
+    <string name="button2_txt">About</string>
+    <string name="button3_txt">Exit</string>
+</resources>

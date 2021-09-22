@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Second_activity</string>
+    <string name="button1_txt">Botão1</string>
+    <string name="button2_txt">Sobre</string>
+    <string name="button3_txt">Sair</string>
+    <string name="button4_txt" translatable="false">Botão 4</string>
+</resources>

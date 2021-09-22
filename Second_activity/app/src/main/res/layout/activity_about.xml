@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="314dp"
+        android:layout_height="622dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia sapien ac justo malesuada, ac sollicitudin metus volutpat. Cras consectetur, nibh non vehicula sollicitudin, quam est ornare massa, a tincidunt justo elit sit amet lectus. Curabitur viverra ligula nisl, at luctus magna pretium eget. Maecenas sollicitudin diam et eros eleifend, vitae facilisis nunc tempus. Pellentesque eu est iaculis, ullamcorper erat at, scelerisque ante. Curabitur vel bibendum ligula, vitae hendrerit felis. Nunc semper in ante sit amet posuere. Pellentesque egestas erat lobortis, vehicula tellus id, aliquet erat. Vestibulum gravida dolor id malesuada volutpat. Vivamus et mauris finibus, ornare metus imperdiet, porttitor eros. Pellentesque commodo sodales eros, sed ultricies enim pellentesque eu. Nam imperdiet sed turpis vel tincidunt. Donec eu massa elementum, efficitur purus ut, dignissim dui."
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="69dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
