@@ -2,11 +2,13 @@ package com.example.second_activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceActivity
 import android.widget.CompoundButton
 import android.widget.RadioButton
 import android.widget.Toast
 
 class ConfigActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config)
@@ -15,6 +17,8 @@ class ConfigActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListen
         rbFemale = findViewById(R.id.radioFemale) as RadioButton
         rbMale.setOnCheckedChangeListener(this)
         rbFemale.setOnCheckedChangeListener(this)
+
+        //Getpreferences
     }
 
     override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
