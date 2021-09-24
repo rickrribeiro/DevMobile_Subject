@@ -7,5 +7,5 @@
     <string name="username_missing">Username is required</string>
     <string name="password_missing">Password is required</string>
     <string name="wrong_password_1">"The password you’ve entered is incorrect. You have "</string>
-    <string name="wrong_password_2">" more attempts"</string>
+    <string name="wrong_password_2">more attempts</string>
 </resources>
