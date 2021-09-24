@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">First_Exam</string>
     <string name="header">iProva</string>
-    <string name="name">Name</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="Login">Login</string>
+    <string name="username_missing">Username is required</string>
+    <string name="password_missing">Password is required</string>
+    <string name="wrong_password_1">"The password you’ve entered is incorrect. You have "</string>
+    <string name="wrong_password_2">" more attempts"</string>
 </resources>
