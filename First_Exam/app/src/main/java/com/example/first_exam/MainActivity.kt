@@ -28,8 +28,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-     
+        sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
+        var attempts = sharedPreferences!!.getInt("attempts", 0)
         
+        if(attempts>=3){
+            Toast.makeText(this, "SE ESTIVER VENDO ISSO, LEMBRAR DE DESCOMENTAR A EXCEPTION", Toast.LENGTH_LONG).show()
+            //throw Exception("Custom Message");
+        }
         username = sharedPreferences!!.getString("username", "").toString()
         password = sharedPreferences!!.getString("password", "").toString()
         if(username=="" || password==""){
@@ -69,7 +74,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         sharedPreferencesEditor.putInt("attempts", attempts)
                         sharedPreferencesEditor.commit()
                     }
+                    inputPassword.text.clear()
                     Toast.makeText(this, getString(R.string.wrong_password_1)+(3-attempts)+getString(R.string.wrong_password_2), Toast.LENGTH_LONG).show()    
+                    if(attempts>=3){
+                        System.exit(0)
+                    }
                 }
             }
         }

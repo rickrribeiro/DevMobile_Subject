@@ -15,9 +15,11 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         var sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         var attempts = sharedPreferences!!.getInt("attempts", 0)
+        var delay = 5000
         if(attempts>=3){
-            /////////// SUBSTITUIR ISSO POR FECHAR A APLICAÇÃO E LEMBRAR DE USAR STRING
-            Toast.makeText(this, "NÃO FOI POSSIVEL RODAR", Toast.LENGTH_LONG).show()
+            delay = 0 
+            //System.exit(0)
+            //Toast.makeText(this, "SE ESTIVER VENDO ISSO, LEMBRAR DE DESCOMENTAR O EXIT", Toast.LENGTH_LONG).show()
         }
         
         window.setFlags(
@@ -30,6 +32,6 @@ class SplashScreen : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }, 5000) 
+        }, delay.toLong()) 
     }
 }
