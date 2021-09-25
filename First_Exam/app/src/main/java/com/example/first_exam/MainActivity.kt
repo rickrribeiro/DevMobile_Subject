@@ -77,6 +77,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     inputPassword.text.clear()
                     Toast.makeText(this, getString(R.string.wrong_password_1)+(3-attempts)+getString(R.string.wrong_password_2), Toast.LENGTH_LONG).show()    
                     if(attempts>=3){
+                        Toast.makeText(this, "Você não tem mais tentativas!", Toast.LENGTH_LONG).show()
                         System.exit(0)
                     }
                 }

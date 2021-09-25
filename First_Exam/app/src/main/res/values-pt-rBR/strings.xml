@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">First_Exam</string>
+    <string name="username">usuario</string>
+    <string name="password">senha</string>
+    <string name="Login">entrar</string>
+    <string name="username_missing">usuario é requerido</string>
+    <string name="password_missing">senha ´´e requerida</string>
+    <string name="wrong_password_1">"usuario ou senha errados! Voce tem mais "</string>
+    <string name="wrong_password_2">tentativas</string>
+    <string name="exit">sair</string>
+</resources>

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.First_Exam">
         <activity
+            android:name=".ConfigMapPage"
+            android:exported="true" />
+        <activity
+            android:name=".CreditsPage"
+            android:exported="true" />
+        <activity
             android:name=".ConfigPage"
             android:exported="true" />
         <activity
