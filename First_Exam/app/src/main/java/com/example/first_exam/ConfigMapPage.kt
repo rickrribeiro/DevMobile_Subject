@@ -24,20 +24,20 @@ class ConfigMapPage : AppCompatActivity(), View.OnClickListener,
         if(valor != 0){
             radio1.check(valor)
         }
-        var radio2 = findViewById(R.id.radio1) as RadioGroup
+        var radio2 = findViewById(R.id.radio2) as RadioGroup
         radio2.setOnCheckedChangeListener(this)
 
         valor = sharedPreferences!!.getInt("radio2",0)
         if(valor != 0){
             radio1.check(valor)
         }
-        var radio3 = findViewById(R.id.radio1) as RadioGroup
+        var radio3 = findViewById(R.id.radio3) as RadioGroup
         radio3.setOnCheckedChangeListener(this)
         valor = sharedPreferences!!.getInt("radio3",0)
         if(valor != 0){
             radio1.check(valor)
         }
-        var radio4 = findViewById(R.id.radio1) as RadioGroup
+        var radio4 = findViewById(R.id.radio4) as RadioGroup
         radio4.setOnCheckedChangeListener(this)
         valor = sharedPreferences!!.getInt("radio4",0)
         if(valor != 0){
