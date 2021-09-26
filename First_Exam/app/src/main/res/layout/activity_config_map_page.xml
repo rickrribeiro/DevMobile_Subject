@@ -127,7 +127,7 @@
                 android:id="@+id/textView563"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="tipo do mapa" />
+                android:text="tipo do map" />
 
             <RadioGroup
                 android:id="@+id/radio4"
