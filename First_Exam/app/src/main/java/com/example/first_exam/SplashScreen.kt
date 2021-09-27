@@ -15,7 +15,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         var sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         var attempts = sharedPreferences!!.getInt("attempts", 0)
-        var delay = 0
+        var delay = 5000
         if(attempts>=3){
             delay = 0 
             //System.exit(0)
