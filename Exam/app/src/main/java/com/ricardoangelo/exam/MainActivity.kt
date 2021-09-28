@@ -5,20 +5,26 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var btnConfig = findViewById<Button>(R.id.button4)
+        var btnConfig = findViewById<Button>(R.id.btnConfig)
         btnConfig.setOnClickListener(this)
+        var btnGNSS = findViewById<Button>(R.id.btnGNSS)
+        btnGNSS.setOnClickListener(this)
+        var btnCredits = findViewById<Button>(R.id.btnCredits)
+        btnCredits.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
         if(p0?.id == R.id.btnCredits){
+            Toast.makeText(this,"VALOR: ", Toast.LENGTH_LONG).show()
              val intent = Intent(this, CreditsPage::class.java)
             startActivity(intent)
-        }else if(p0?.id == R.id.button4){
+        }else if(p0?.id == R.id.btnConfig){
             val intent = Intent(this, ConfigPage::class.java)
             startActivity(intent)
         }

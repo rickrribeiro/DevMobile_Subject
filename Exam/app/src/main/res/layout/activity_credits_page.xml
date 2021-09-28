@@ -6,4 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".CreditsPage">
 
+    
+    <ScrollView
+        android:id="@+id/scrollCredits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="308dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textCredits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="Feito Por: Ricardo Ribeiro e Angelo Neves!"
+            android:textSize="96sp" />
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
