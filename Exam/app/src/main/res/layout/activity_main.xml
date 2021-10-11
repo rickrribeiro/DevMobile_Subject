@@ -4,58 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_selector">
     tools:context=".MainActivity">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="416dp"
-        android:layout_height="302dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mainimg" />
-
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="394dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btnConfig"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Configuration" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="336dp"
+            android:layout_height="229dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            app:srcCompat="@drawable/mainimg" />
 
-        <Button
-            android:id="@+id/btnNavigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Navigation" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="342dp"
+            android:layout_height="322dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="96dp"
+            android:foregroundGravity="center"
+            app:cardBackgroundColor="#65FFFFFF"
+            app:cardCornerRadius="50dp">
 
-        <Button
-            android:id="@+id/btnGNSS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/GNSS" />
+            <LinearLayout
+                android:layout_width="317dp"
+                android:layout_height="262dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="30dp"
+                android:background="#00FFFFFF"
+                android:backgroundTint="#00FFFFFF"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/History" />
+                <Button
+                    android:id="@+id/btnConfig"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#D68000"
+                    android:text="@string/Configuration"
+                    app:cornerRadius="50dp" />
 
-        <Button
-            android:id="@+id/btnCredits"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Credits" />
+                <Button
+                    android:id="@+id/btnNavigation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#D68000"
+                    android:text="@string/Navigation"
+                    app:cornerRadius="50dp" />
 
+                <Button
+                    android:id="@+id/btnGNSS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#D68000"
+                    android:text="@string/GNSS"
+                    app:cornerRadius="50dp" />
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#D68000"
+                    android:text="@string/History"
+                    app:cornerRadius="50dp" />
+
+                <Button
+                    android:id="@+id/btnCredits"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#D68000"
+                    android:text="@string/Credits"
+                    app:cornerRadius="50dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

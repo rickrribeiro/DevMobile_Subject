@@ -21,12 +21,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         if(p0?.id == R.id.btnCredits){
-            Toast.makeText(this,"VALOR: ", Toast.LENGTH_LONG).show()
+            
              val intent = Intent(this, CreditsPage::class.java)
             startActivity(intent)
         }else if(p0?.id == R.id.btnConfig){
             val intent = Intent(this, ConfigPage::class.java)
             startActivity(intent)
+            
         }
     }
 }
