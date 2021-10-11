@@ -4,158 +4,203 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfigPage"
-    android:background="@drawable/bg_selector">
+    android:background="@drawable/bg_selector"
+    tools:context=".ConfigPage">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foregroundGravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView56"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Formato de apresentaçao" />
+            <LinearLayout
+                android:layout_width="409dp"
+                android:layout_height="729dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
 
-            <RadioGroup
-                android:id="@+id/radio1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/radio11"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Grau Decimal" />
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <RadioButton
-                    android:id="@+id/radio12"
+
+                    <Button
+                        android:id="@+id/button7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="62dp"
+                        android:backgroundTint="#FF9800"
+                        android:text="Formato de apresentação"
+                        android:textSize="15sp"
+                        app:cornerRadius="50dp" />
+
+
+                    <RadioGroup
+                        android:id="@+id/radio1"
+                        android:layout_width="249dp"
+                        android:layout_height="match_parent">
+
+                        <RadioButton
+                            android:id="@+id/radio11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:text="Grau Decimal" />
+
+                        <RadioButton
+                            android:id="@+id/radio12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:text="Grau-minuto decimal" />
+
+                        <RadioButton
+                            android:id="@+id/radio13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:text="grau-minuto-segundo decimal" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Grau-minuto decimal" />
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <RadioButton
-                    android:id="@+id/radio13"
+                    <Button
+                        android:id="@+id/button71"
+                        android:layout_width="wrap_content"
+                        android:layout_height="62dp"
+                        android:backgroundTint="#FF9800"
+                        android:text="Unidade de apresentação"
+                        android:textSize="15sp"
+                        app:cornerRadius="50dp" />
+
+                    <RadioGroup
+                        android:id="@+id/radio2"
+                        android:layout_width="253dp"
+                        android:layout_height="85dp">
+
+                        <RadioButton
+                        android:buttonTint="#FF9800"
+                            android:id="@+id/radio21"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Km/h" />
+
+                        <RadioButton
+                        android:buttonTint="#FF9800"
+                            android:id="@+id/radio22"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:text="Mph" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="grau-minuto-segundo decimal" />
-            </RadioGroup>
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/button72"
+                        android:layout_width="263dp"
+                        android:layout_height="59dp"
+                        android:backgroundTint="#FF9800"
+                        android:text="Orientação do mapa"
+                        android:textSize="15sp"
+                        app:cornerRadius="50dp" />
+
+                    <RadioGroup
+                        android:id="@+id/radio3"
+                        android:layout_width="255dp"
+                        android:layout_height="133dp">
+
+                        <RadioButton
+                        android:buttonTint="#FF9800"
+                            android:id="@+id/radio31"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Nenhuma" />
+
+                        <RadioButton
+                        android:buttonTint="#FF9800"
+                            android:id="@+id/radio32"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="North Up" />
+
+                        <RadioButton
+                            android:id="@+id/radio33"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:minHeight="48dp"
+                            android:text="RadioButton" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/button73"
+                        android:layout_width="270dp"
+                        android:layout_height="61dp"
+                        android:backgroundTint="#FF9800"
+                        android:text="Tipo do mapa"
+                        android:textSize="15sp"
+                        app:cornerRadius="50dp" />
+
+                    <RadioGroup
+                        android:id="@+id/radio4"
+                        android:layout_width="262dp"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                        android:buttonTint="#FF9800"
+                            android:id="@+id/radio41"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Vetorial" />
+
+                        <RadioButton
+                        android:buttonTint="#FF9800"
+                            android:id="@+id/radio42"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Imagem de Satelite" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <CheckBox
+                    android:id="@+id/ligado"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FF9800"
+                    android:buttonTint="#FF9800"
+                    android:minHeight="48dp"
+                    android:text="Trafego" />
+
+            </LinearLayout>
         </LinearLayout>
+    </ScrollView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView57"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Unidade de apresentacao" />
-
-            <RadioGroup
-                android:id="@+id/radio2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/radio21"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Km/h" />
-
-                <RadioButton
-                    android:id="@+id/radio22"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mph" />
-
-            </RadioGroup>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView562"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Orientacao do mapa" />
-
-            <RadioGroup
-                android:id="@+id/radio3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/radio31"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Nenhuma" />
-
-                <RadioButton
-                    android:id="@+id/radio32"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="North Up" />
-
-                <RadioButton
-                    android:id="@+id/radio33"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="RadioButton" />
-            </RadioGroup>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView563"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="tipo do map" />
-
-            <RadioGroup
-                android:id="@+id/radio4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/radio41"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Vetorial" />
-
-                <RadioButton
-                    android:id="@+id/radio42"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Imagem de Satelite" />
-
-            </RadioGroup>
-        </LinearLayout>
-
-
-        <CheckBox
-            android:id="@+id/ligado"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Trafego" />
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
