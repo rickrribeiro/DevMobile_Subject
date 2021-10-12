@@ -14,4 +14,5 @@
     <string name="GNSS">GNSS</string>
     <string name="History">History</string>
     <string name="Credits">Credits</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

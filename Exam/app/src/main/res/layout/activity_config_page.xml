@@ -19,8 +19,8 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="409dp"
-                android:layout_height="729dp"
+                android:layout_width="432dp"
+                android:layout_height="864dp"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="15dp"
                 android:orientation="vertical">
@@ -92,17 +92,17 @@
                         android:layout_height="85dp">
 
                         <RadioButton
-                        android:buttonTint="#FF9800"
                             android:id="@+id/radio21"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
                             android:text="Km/h" />
 
                         <RadioButton
-                        android:buttonTint="#FF9800"
                             android:id="@+id/radio22"
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
+                            android:buttonTint="#FF9800"
                             android:text="Mph" />
 
                     </RadioGroup>
@@ -129,17 +129,17 @@
                         android:layout_height="133dp">
 
                         <RadioButton
-                        android:buttonTint="#FF9800"
                             android:id="@+id/radio31"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
                             android:text="Nenhuma" />
 
                         <RadioButton
-                        android:buttonTint="#FF9800"
                             android:id="@+id/radio32"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
                             android:text="North Up" />
 
                         <RadioButton
@@ -173,32 +173,47 @@
                         android:layout_height="wrap_content">
 
                         <RadioButton
-                        android:buttonTint="#FF9800"
                             android:id="@+id/radio41"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
                             android:text="Vetorial" />
 
                         <RadioButton
-                        android:buttonTint="#FF9800"
                             android:id="@+id/radio42"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
                             android:text="Imagem de Satelite" />
 
                     </RadioGroup>
                 </LinearLayout>
 
-
-                <CheckBox
-                    android:id="@+id/ligado"
-                    android:layout_width="280dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#FF9800"
-                    android:buttonTint="#FF9800"
-                    android:minHeight="48dp"
-                    android:text="Trafego" />
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <Button
+                        android:id="@+id/button74"
+                        android:layout_width="270dp"
+                        android:layout_height="61dp"
+                        android:backgroundTint="#FF9800"
+                        android:text="Trafego"
+                        android:textSize="15sp"
+                        app:cornerRadius="50dp" />
+
+                    <CheckBox
+                        android:id="@+id/ligado"
+                        android:layout_width="259dp"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#FF9800"
+                        android:buttonTint="#FF9800"
+                        android:minHeight="48dp"
+                        android:text="Trafego" />
+
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
