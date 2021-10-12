@@ -22,7 +22,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     var sharedPreferences: SharedPreferences? = null;private set;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        supportActionBar?.hide()
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -37,9 +37,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
         sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val unifacs = LatLng(-12.961289, -38.432138)
+        mMap.addMarker(MarkerOptions()
+            .position(unifacs)
+            .title("Tô aq!")
+            .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_icon)))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(unifacs))
         // ajuste pro mapa dar reload
         val tileProvider = object: UrlTileProvider(256, 256) {
       override fun getTileUrl(x:Int,y:Int,zoom:Int): URL {

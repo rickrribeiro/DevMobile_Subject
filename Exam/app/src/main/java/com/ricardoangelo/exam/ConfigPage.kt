@@ -18,12 +18,13 @@ class ConfigPage : AppCompatActivity(), View.OnClickListener,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config_page)
+        supportActionBar?.hide()
         var valor = 0
         sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val radio1 = findViewById(R.id.radio1) as RadioGroup
         radio1.setOnCheckedChangeListener(this)
         valor = sharedPreferences!!.getInt("radio1",0)
-        Toast.makeText(this,"VALOR: "+valor.toString(), Toast.LENGTH_LONG).show()
+        //Toast.makeText(this,"VALOR: "+valor.toString(), Toast.LENGTH_LONG).show()
         if(valor != 0){
             radio1.check(valor)
         }
@@ -53,7 +54,7 @@ class ConfigPage : AppCompatActivity(), View.OnClickListener,
 
     override fun onClick(p0: View?) {
         val sharedPreferencesEditor = sharedPreferences?.edit() as SharedPreferences.Editor
-        Toast.makeText(this, "changed", Toast.LENGTH_LONG).show()
+        //Toast.makeText(this, "changed", Toast.LENGTH_LONG).show()
         if(p0?.id == R.id.ligado){
             if(sharedPreferencesEditor != null){
             sharedPreferencesEditor.putBoolean("ligado",(p0 as CheckBox)?.isChecked )

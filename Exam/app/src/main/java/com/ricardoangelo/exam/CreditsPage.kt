@@ -13,6 +13,7 @@ class CreditsPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_credits_page)
+        supportActionBar?.hide()
         var text = findViewById<TextView>(R.id.textCredits)
         text.movementMethod = ScrollingMovementMethod.getInstance()
         text.isSelected = true
