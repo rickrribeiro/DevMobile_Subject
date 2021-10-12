@@ -9,7 +9,7 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)e
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         var btnConfig = findViewById<Button>(R.id.btnConfig)
         btnConfig.setOnClickListener(this)
