@@ -2,9 +2,11 @@ package com.ricardoangelo.exam
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -41,12 +43,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions()
             .position(unifacs)
             .title("Tô aq!")
+            .snippet("EA")
             .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_icon)))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(unifacs))
         // ajuste pro mapa dar reload
         val tileProvider = object: UrlTileProvider(256, 256) {
       override fun getTileUrl(x:Int,y:Int,zoom:Int): URL {
-
 
         val s = String.format("http://my.image.server/images/%d/%d/%d.png",
             zoom, x, y)
@@ -86,6 +88,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapType = sharedPreferences!!.getInt("radio4",0)
         if(mapType == R.id.radio42){
             mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+            mMap.isBuildingsEnabled=true
+           
         }else{
             mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         }
@@ -96,6 +100,26 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             googleMap.setTrafficEnabled(true);
         }else{
             googleMap.setTrafficEnabled(false);
+        }
+        //map orientation
+    //     if(ContextCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
+    //         ActivityCompat.requestPermissions(
+    //     this,
+    //     new String [] { android.Manifest.permission.ACCESS_COARSE_LOCATION },
+
+    // );
+       // }
+        //mMap.isMyLocationEnabled=true
+        mMap.uiSettings.isMyLocationButtonEnabled=true
+        mMap.uiSettings.isCompassEnabled=true
+        mMap.uiSettings.isZoomControlsEnabled = true
+        val mapOrientation = sharedPreferences!!.getInt("radio3",0)
+        if(mapOrientation == R.id.radio32){
+         mMap.uiSettings.isRotateGesturesEnabled=false
+        }else if(mapOrientation == R.id.radio33){
+         mMap.uiSettings.isRotateGesturesEnabled=false
+        }else{
+            mMap.uiSettings.isRotateGesturesEnabled=true //shift control
         }
     }
 }
