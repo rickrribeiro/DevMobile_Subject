@@ -7,11 +7,16 @@ import android.view.View
 import android.view.Window
 import android.widget.Button
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val permissions = arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION)
+        ActivityCompat.requestPermissions(this, permissions,0)
+        val permissionsCoarse = arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION)
+        ActivityCompat.requestPermissions(this, permissionsCoarse,0)
         supportActionBar?.hide()
         var btnConfig = findViewById<Button>(R.id.btnConfig)
         btnConfig.setOnClickListener(this)

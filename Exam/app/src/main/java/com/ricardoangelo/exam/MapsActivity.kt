@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -16,6 +17,7 @@ import com.google.android.gms.maps.model.*
 import com.ricardoangelo.exam.databinding.ActivityMapsBinding
 import java.net.MalformedURLException
 import java.net.URL
+import java.util.jar.Manifest
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -25,6 +27,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
+        // val permissions = arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION)
+        // ActivityCompat.requestPermissions(this, permissions,0)
+        // permissions = arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION)
+        // ActivityCompat.requestPermissions(this, permissions,0)
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -102,14 +108,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             googleMap.setTrafficEnabled(false);
         }
         //map orientation
-    //     if(ContextCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
-    //         ActivityCompat.requestPermissions(
-    //     this,
-    //     new String [] { android.Manifest.permission.ACCESS_COARSE_LOCATION },
-
-    // );
-       // }
-        //mMap.isMyLocationEnabled=true
+        
+        if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED){
+            mMap.isMyLocationEnabled=true
+        }else{
+            val permissions = arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION)
+            ActivityCompat.requestPermissions(this, permissions,0)
+            val permissionsCoarse = arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION)
+            ActivityCompat.requestPermissions(this, permissionsCoarse,0)
+        }
+        
         mMap.uiSettings.isMyLocationButtonEnabled=true
         mMap.uiSettings.isCompassEnabled=true
         mMap.uiSettings.isZoomControlsEnabled = true
