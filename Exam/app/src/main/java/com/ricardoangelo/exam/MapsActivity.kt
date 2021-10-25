@@ -6,6 +6,7 @@ import android.content.IntentSender
 
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,6 +23,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import com.ricardoangelo.exam.databinding.ActivityMapsBinding
+import java.lang.Error
 import java.net.MalformedURLException
 import java.net.URL
 import java.util.jar.Manifest
@@ -35,7 +37,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var locationUpdateState = false
     private lateinit var locationCallback: LocationCallback
     private lateinit var lastLocation: Location
+    private lateinit var initPosition: LatLng
     private lateinit var marker: Marker
+    private lateinit var circle: Circle
     var sharedPreferences: SharedPreferences? = null;private set;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,32 +64,59 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))//mudar p pegar o marcador
             }
         }
-        createLocationRequest()
+       createLocationRequest()// pegar a posição atual do usuário
     }
 
+    private fun setLastLocation(location: Location?){
+        if(location?.latitude !=null && location?.longitude!=null){
+            initPosition = LatLng(location.latitude, location.longitude)
+        }else{
+            initPosition = LatLng(-12.961289, -38.432138)
+        }
+    }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
-        val unifacs = LatLng(-12.961289, -38.432138)
+        
         fusedLocation = LocationServices.getFusedLocationProviderClient(this)
-        if(1==2){//botar o get current location
+        
+        //esse if define a localização caso o createLocationRequest não pegue a loc atual
+        //if(fusedLocation.lastLocation != null){ //descomentar esse if e remover o de 1==2
+        if(1==2){
+            try{
 
-        }else if(fusedLocation.lastLocation != null){
-            //fusedLocation.lastLocation.addOnSuccessListener { location: Location -> unifacs = LatLng(location.latitude, location.longitude) }
+                fusedLocation.lastLocation.addOnSuccessListener {
+                        location: Location? -> setLastLocation(location)
+                }
+            }catch(err: Error){
+                Toast.makeText(this,err.toString(), Toast.LENGTH_SHORT).show()
+            }
             //Toast.makeText(this,fusedLocation.lastLocation.result.toString(), Toast.LENGTH_SHORT).show()
+            
         }else{
-            //val unifacs = LatLng(-12.961289, -38.432138)
+            initPosition = LatLng(-12.961289, -38.432138)
         }
         
 
          val marOptions= MarkerOptions()
-            .position(unifacs)
+            .position(initPosition)
             .title("Tô aq!")
             .snippet("EA")
             .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_icon))
         marker = mMap.addMarker(marOptions)
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(unifacs))
+
+        //aduiciona o circulo
+        val co = CircleOptions()
+            .center(marker.position)
+            .radius(300.0) //colocar dinamico
+            .fillColor(Color.CYAN)
+            .strokeColor(Color.RED)
+            .strokeWidth(4.0f)
+         circle = mMap.addCircle(co);
+
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(initPosition))
         // ajuste pro mapa dar reload
         val tileProvider = object: UrlTileProvider(256, 256) {
       override fun getTileUrl(x:Int,y:Int,zoom:Int): URL {
@@ -200,7 +231,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun placeMarkerOnMap(location: LatLng) {
         Toast.makeText(this, location.toString(), Toast.LENGTH_SHORT).show()
-
         marker.position = location
+        circle.center = location
+        
     }
 }
