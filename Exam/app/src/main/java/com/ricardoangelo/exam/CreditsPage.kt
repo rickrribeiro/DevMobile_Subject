@@ -18,6 +18,6 @@ class CreditsPage : AppCompatActivity() {
         text.movementMethod = ScrollingMovementMethod.getInstance()
         text.isSelected = true
         text.ellipsize = TextUtils.TruncateAt.MARQUEE
-        text.text="Feito Por: Ricardo Ribeiro e Angelo Neves!"
+        text.text="Feito Por: Ricardo Ribeiro, Angelo Neves, Demas e Amanda!"
     }
 }
