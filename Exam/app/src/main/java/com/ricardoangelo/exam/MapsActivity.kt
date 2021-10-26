@@ -254,6 +254,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapOrientation = sharedPreferences!!.getInt("radio3",0);
         if(mapOrientation == R.id.radio33){
             marker.rotation = bearing
+            mMap.moveCamera(CameraUpdateFactory.newCameraPosition(CameraPosition(location, mMap.cameraPosition.zoom, mMap.cameraPosition.tilt, bearing)))
         }
         
         
