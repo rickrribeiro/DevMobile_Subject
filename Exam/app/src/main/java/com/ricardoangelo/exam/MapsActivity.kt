@@ -10,6 +10,8 @@ import android.graphics.Color
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Half.toFloat
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -24,6 +26,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import com.ricardoangelo.exam.databinding.ActivityMapsBinding
 import java.lang.Error
+import java.lang.Exception
+import java.lang.Math.sqrt
 import java.net.MalformedURLException
 import java.net.URL
 import java.util.jar.Manifest
@@ -59,9 +63,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(p0: LocationResult) {
                 super.onLocationResult(p0)
+                var bearing = 0.toFloat()
+                try{
 
+                bearing = lastLocation.bearingTo(p0.lastLocation).toFloat()
+                }catch(err: Exception){
+                    Log.e("erro", "erro")
+                   Log.e(err?.toString(), err?.toString())
+                }
+                //if(lastLocation!=null){
+
+              // }
                 lastLocation = p0.lastLocation
-                placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))//mudar p pegar o marcador
+                placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude), bearing)//mudar p pegar o marcador
             }
         }
        createLocationRequest()// pegar a posição atual do usuário
@@ -89,7 +103,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 fusedLocation.lastLocation.addOnSuccessListener {
                         location: Location? -> setLastLocation(location)
                 }
-            }catch(err: Error){
+            }catch(err: Exception){
                 Toast.makeText(this,err.toString(), Toast.LENGTH_SHORT).show()
             }
             //Toast.makeText(this,fusedLocation.lastLocation.result.toString(), Toast.LENGTH_SHORT).show()
@@ -109,7 +123,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         //aduiciona o circulo
         val co = CircleOptions()
             .center(marker.position)
-            .radius(300.0) //colocar dinamico
+            .radius(150.0) //colocar dinamico
             .fillColor(Color.CYAN)
             .strokeColor(Color.RED)
             .strokeWidth(4.0f)
@@ -152,8 +166,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         .tileProvider(tileProvider))
         mMap.setOnMapClickListener(object : GoogleMap.OnMapClickListener {
         override fun onMapClick(p0: LatLng?) {
-           // val textInfo = findViewById<TextView>(R.id.textViewInfo);
-            //textInfo.text= p0?.latitude.toString()
+           
         }
     })
         //definindo tipo do mapa
@@ -173,7 +186,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }else{
             googleMap.setTrafficEnabled(false);
         }
-        //map orientation
+        
         
         if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED){
             mMap.isMyLocationEnabled=true
@@ -188,6 +201,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.uiSettings.isMyLocationButtonEnabled=true
         mMap.uiSettings.isCompassEnabled=true
         mMap.uiSettings.isZoomControlsEnabled = true
+        //map orientation
         val mapOrientation = sharedPreferences!!.getInt("radio3",0)
         if(mapOrientation == R.id.radio32){
          mMap.uiSettings.isRotateGesturesEnabled=false
@@ -202,8 +216,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     
     private fun createLocationRequest() {
         locationRequest = LocationRequest()
-        locationRequest.interval = 10000
-        locationRequest.fastestInterval = 5000
+        locationRequest.interval = 100
+        locationRequest.fastestInterval = 100
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
 
         val builder = LocationSettingsRequest.Builder()
@@ -229,10 +243,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
-    private fun placeMarkerOnMap(location: LatLng) {
-        Toast.makeText(this, location.toString(), Toast.LENGTH_SHORT).show()
+    private fun placeMarkerOnMap(location: LatLng, bearing: Float) {
+
+        //ajustar calculo velocidade
+        var speed = (sqrt((location.latitude - marker.position.latitude)*(location.latitude - marker.position.latitude) + (location.longitude - marker.position.longitude)*(location.longitude - marker.position.longitude))) / (10)
         marker.position = location
         circle.center = location
+        val textInfo = findViewById<TextView>(R.id.textViewInfo);
+        textInfo.text= "Latitude: "+location.latitude.toString()+"\nLongitude"+location.longitude.toString()+"\nSpeed:"+speed
+        val mapOrientation = sharedPreferences!!.getInt("radio3",0);
+        if(mapOrientation == R.id.radio33){
+            marker.rotation = bearing
+        }
+        
         
     }
 }
