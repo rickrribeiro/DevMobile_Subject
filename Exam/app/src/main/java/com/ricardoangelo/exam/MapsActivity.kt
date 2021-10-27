@@ -27,7 +27,7 @@ import com.google.android.gms.maps.model.*
 import com.ricardoangelo.exam.databinding.ActivityMapsBinding
 import java.lang.Error
 import java.lang.Exception
-import java.lang.Math.sqrt
+import java.lang.Math.*
 import java.net.MalformedURLException
 import java.net.URL
 import java.util.jar.Manifest
@@ -246,11 +246,35 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun placeMarkerOnMap(location: LatLng, bearing: Float) {
 
         //ajustar calculo velocidade
-        var speed = (sqrt((location.latitude - marker.position.latitude)*(location.latitude - marker.position.latitude) + (location.longitude - marker.position.longitude)*(location.longitude - marker.position.longitude))) / (10)
+        var dist = distance_on_geoid(marker.position.latitude, marker.position.longitude, location.latitude, location.longitude);
+        var time_s = 1;
+       
         marker.position = location
         circle.center = location
         val textInfo = findViewById<TextView>(R.id.textViewInfo);
-        textInfo.text= "Latitude: "+location.latitude.toString()+"\nLongitude"+location.longitude.toString()+"\nSpeed:"+speed
+        //velocidade
+        val presentationUnit = sharedPreferences!!.getInt("radio2",0);
+        var speedText ="";
+        var speed = ((dist / time_s) * 3600.0) / 1000.0;
+        if(presentationUnit == R.id.radio22){
+            speed = speed/1.60934421012;
+            speedText=String.format("%.2f MPH", speed);
+        }else{
+           
+           speedText=String.format("%.2f KMH", speed);
+        }
+        //Conversão do formato
+        var latitude = location.latitude
+        var longitude = location.longitude
+        val presentationFormat = sharedPreferences!!.getInt("radio1",0);
+        if(presentationFormat == R.id.radio11){
+            //colocar latitude = grau decimal
+        }else if(presentationFormat == R.id.radio12){
+            //colocar latitude = grau minuto decimal
+        }else if(presentationFormat == R.id.radio13){
+            //colocar latitude = grau minuto segundo decimal
+        }
+        textInfo.text= "Latitude: "+latitude.toString()+"\nLongitude"+longitude.toString()+"\nSpeed:"+speedText
         val mapOrientation = sharedPreferences!!.getInt("radio3",0);
         if(mapOrientation == R.id.radio33){
             marker.rotation = bearing
@@ -259,4 +283,42 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         
         
     }
+
+    private fun distance_on_geoid(lat11: Double, lon11: Double, lat22: Double, lon22: Double): Double {
+        var lat1 = lat11
+        var lon1 = lon11
+        var lat2 = lat22
+        var lon2 = lon22
+        // Convert degrees to radians
+        lat1 = lat1 * PI / 180.0;
+        lon1 = lon1 * PI / 180.0;
+
+        lat2 = lat2 * PI / 180.0;
+        lon2 = lon2 * PI / 180.0;
+
+        // radius of earth in metres
+        var r = (6378100).toDouble();
+
+        // P
+        var rho1 = r * cos(lat1);
+        var z1 = r * sin(lat1);
+        var x1 = rho1 * cos(lon1);
+        var y1 = rho1 * sin(lon1);
+
+        // Q
+        var rho2 = r * cos(lat2);
+        var z2 = r * sin(lat2);
+        var x2 = rho2 * cos(lon2);
+        var y2 = rho2 * sin(lon2);
+
+        // Dot product
+        var dot = (x1 * x2 + y1 * y2 + z1 * z2);
+        var cos_theta = dot / (r * r);
+
+        var theta = acos(cos_theta);
+
+        // Distance in Metres
+        return r * theta;
+    }
+
 }
