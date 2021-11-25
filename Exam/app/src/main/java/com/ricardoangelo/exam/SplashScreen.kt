@@ -7,6 +7,9 @@ import android.os.Handler
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+
 
 @Suppress("DEPRECATION")
 class SplashScreen : AppCompatActivity() {
@@ -24,6 +27,6 @@ class SplashScreen : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }, 0) 
+        }, 500)
     }
 }

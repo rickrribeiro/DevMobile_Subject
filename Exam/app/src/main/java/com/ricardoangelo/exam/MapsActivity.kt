@@ -24,12 +24,15 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.ricardoangelo.exam.databinding.ActivityMapsBinding
 import java.lang.Error
 import java.lang.Exception
 import java.lang.Math.*
 import java.net.MalformedURLException
 import java.net.URL
+import java.util.*
 import java.util.jar.Manifest
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -44,6 +47,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var initPosition: LatLng
     private lateinit var marker: Marker
     private lateinit var circle: Circle
+    var database = Firebase.database
     var sharedPreferences: SharedPreferences? = null;private set;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -266,6 +270,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         //Conversão do formato
         var latitude = location.latitude
         var longitude = location.longitude
+        
+        val myRef = database.getReference("location_history")
+        val uuid: UUID = UUID.randomUUID()
+        myRef.child(uuid.toString()).child("latitude").setValue(latitude)
+        myRef.child(uuid.toString()).child("longitude").setValue(longitude)
         val presentationFormat = sharedPreferences!!.getInt("radio1",0);
         if(presentationFormat == R.id.radio11){
             //colocar latitude = grau decimal

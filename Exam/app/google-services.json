@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "850076436723",
+    "firebase_url": "https://quemvaihoje-default-rtdb.firebaseio.com",
+    "project_id": "quemvaihoje",
+    "storage_bucket": "quemvaihoje.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850076436723:android:e795c63212311a87e9cf86",
+        "android_client_info": {
+          "package_name": "com.ricardoangelo.exam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850076436723-gfcnarj25dkcsg7hog4q1c6gad341gjb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALOjHKRJa4V5_UnwwW4RKnJ_nzLlNnQPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850076436723-gfcnarj25dkcsg7hog4q1c6gad341gjb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
