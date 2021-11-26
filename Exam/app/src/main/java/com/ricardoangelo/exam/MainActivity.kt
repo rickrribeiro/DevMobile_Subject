@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnNavigation.setOnClickListener(this)
         var btnCredits = findViewById<Button>(R.id.btnCredits)
         btnCredits.setOnClickListener(this)
+        var btnHistory = findViewById<Button>(R.id.btnHistory)
+        btnHistory.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -38,8 +40,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             
         }else if(p0?.id == R.id.btnConfig){
             val intent = Intent(this, ConfigPage::class.java)
-            startActivity(intent)
-            
+            startActivity(intent) 
+        }else if(p0?.id == R.id.btnHistory){
+            val intent = Intent(this, HistoryActivity::class.java)
+            startActivity(intent) 
         }
     }
 }

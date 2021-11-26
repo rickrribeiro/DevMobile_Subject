@@ -71,7 +71,7 @@
                     app:cornerRadius="50dp" />
 
                 <Button
-                    android:id="@+id/button6"
+                    android:id="@+id/btnHistory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#D68000"
