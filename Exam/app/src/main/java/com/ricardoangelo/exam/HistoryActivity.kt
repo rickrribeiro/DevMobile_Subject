@@ -1,5 +1,6 @@
 package com.ricardoangelo.exam
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -25,7 +26,8 @@ class HistoryActivity : AppCompatActivity(), View.OnClickListener {
            
         }
         if(p0?.id == R.id.btnHistoryTable){
-           
+           val intent = Intent(this, TableHistoryActivity::class.java)
+            startActivity(intent)
         }
         if(p0?.id == R.id.btnHistoryClear){
            val myRef = database.getReference("location_history")
