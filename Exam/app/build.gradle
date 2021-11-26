@@ -6,7 +6,9 @@ plugins {
 
 android {
     compileSdk 31
-
+    dataBinding {
+        enabled = true
+    }
     defaultConfig {
         applicationId "com.ricardoangelo.exam"
         minSdk 21

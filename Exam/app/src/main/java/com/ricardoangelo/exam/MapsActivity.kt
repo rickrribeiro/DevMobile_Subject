@@ -275,6 +275,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val uuid: UUID = UUID.randomUUID()
         myRef.child(uuid.toString()).child("latitude").setValue(latitude)
         myRef.child(uuid.toString()).child("longitude").setValue(longitude)
+        myRef.child(uuid.toString()).child("date").setValue(java.util.Calendar.getInstance())
         val presentationFormat = sharedPreferences!!.getInt("radio1",0);
         if(presentationFormat == R.id.radio11){
             //colocar latitude = grau decimal
