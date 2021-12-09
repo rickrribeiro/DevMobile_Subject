@@ -32,6 +32,7 @@ import java.lang.Exception
 import java.lang.Math.*
 import java.net.MalformedURLException
 import java.net.URL
+import java.text.SimpleDateFormat
 import java.util.*
 import java.util.jar.Manifest
 
@@ -275,7 +276,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val uuid: UUID = UUID.randomUUID()
         myRef.child(uuid.toString()).child("latitude").setValue(latitude)
         myRef.child(uuid.toString()).child("longitude").setValue(longitude)
-        myRef.child(uuid.toString()).child("date").setValue(java.util.Calendar.getInstance())
+        
+        myRef.child(uuid.toString()).child("date").setValue(java.util.Calendar.getInstance().time.date.toString() +"/"+(java.util.Calendar.getInstance().time.month+1))
         val presentationFormat = sharedPreferences!!.getInt("radio1",0);
         if(presentationFormat == R.id.radio11){
             //colocar latitude = grau decimal

@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnCredits.setOnClickListener(this)
         var btnHistory = findViewById<Button>(R.id.btnHistory)
         btnHistory.setOnClickListener(this)
+        var btnGNSS = findViewById<Button>(R.id.btnGNSS)
+        btnGNSS.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -43,6 +45,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             startActivity(intent) 
         }else if(p0?.id == R.id.btnHistory){
             val intent = Intent(this, HistoryActivity::class.java)
+            startActivity(intent) 
+        }else if(p0?.id == R.id.btnGNSS){
+            val intent = Intent(this, GNSSActivity::class.java)
             startActivity(intent) 
         }
     }

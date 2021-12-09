@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Exam">
         <activity
+            android:name=".GNSSActivity"
+            android:exported="true" />
+        <activity
             android:name=".TableHistoryActivity"
             android:exported="true" />
         <activity
