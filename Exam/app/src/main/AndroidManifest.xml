@@ -17,10 +17,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Exam">
         <activity
-            android:name=".GNSSLocationActivity"
+            android:name=".GNSSLocationJava"
             android:exported="true" />
         <activity
-            android:name=".GNSSActivity2"
+            android:name=".GNSSActivityJava"
+            android:exported="true" />
+        <activity
+            android:name=".CreditsPageJava"
+            android:exported="true" />
+        <activity
+            android:name=".GNSSLocationActivity"
             android:exported="true" />
         <activity
             android:name=".GNSSActivity"

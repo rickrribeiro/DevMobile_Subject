@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         if(p0?.id == R.id.btnCredits){
             
-            val intent = Intent(this, CreditsPage::class.java)
+            val intent = Intent(this, CreditsPageJava::class.java)
             startActivity(intent)
         }else if(p0?.id == R.id.btnNavigation){
             
