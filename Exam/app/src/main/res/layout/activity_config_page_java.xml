@@ -4,6 +4,218 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfigPageJava">
+    android:background="@drawable/bg_selector"
+    tools:context=".ConfigPage">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foregroundGravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="432dp"
+                android:layout_height="864dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <Button
+                        android:id="@+id/button7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="62dp"
+                        android:backgroundTint="#FF9800"
+                        android:text="Formato de apresentação"
+                        android:textSize="15sp"
+                        app:cornerRadius="50dp" />
+
+
+                    <RadioGroup
+                        android:id="@+id/radio1"
+                        android:layout_width="249dp"
+                        android:layout_height="match_parent">
+
+                        <RadioButton
+                            android:id="@+id/radio11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:text="Grau Decimal" />
+
+                        <RadioButton
+                            android:id="@+id/radio12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:text="Grau-minuto decimal" />
+
+                        <RadioButton
+                            android:id="@+id/radio13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:text="grau-minuto-segundo decimal" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/button71"
+                        android:layout_width="wrap_content"
+                        android:layout_height="62dp"
+                        android:backgroundTint="#FF9800"
+                        android:text="Unidade de apresentação"
+                        android:textSize="15sp"
+                        app:cornerRadius="50dp" />
+
+                    <RadioGroup
+                        android:id="@+id/radio2"
+                        android:layout_width="253dp"
+                        android:layout_height="85dp">
+
+                        <RadioButton
+                            android:id="@+id/radio21"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:text="Km/h" />
+
+                        <RadioButton
+                            android:id="@+id/radio22"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:buttonTint="#FF9800"
+                            android:text="Mph" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/button72"
+                        android:layout_width="263dp"
+                        android:layout_height="59dp"
+                        android:backgroundTint="#FF9800"
+                        android:text="Orientação do mapa"
+                        android:textSize="15sp"
+                        app:cornerRadius="50dp" />
+
+                    <RadioGroup
+                        android:id="@+id/radio3"
+                        android:layout_width="255dp"
+                        android:layout_height="133dp">
+
+                        <RadioButton
+                            android:id="@+id/radio31"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:text="Nenhuma || p lembrar, detelar antes da apresentacao(ctrl+shift click)" />
+
+                        <RadioButton
+                            android:id="@+id/radio32"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:text="North Up" />
+
+                        <RadioButton
+                            android:id="@+id/radio33"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:minHeight="48dp"
+                            android:text="Course Up" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/button73"
+                        android:layout_width="270dp"
+                        android:layout_height="61dp"
+                        android:backgroundTint="#FF9800"
+                        android:text="Tipo do mapa"
+                        android:textSize="15sp"
+                        app:cornerRadius="50dp" />
+
+                    <RadioGroup
+                        android:id="@+id/radio4"
+                        android:layout_width="262dp"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/radio41"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:text="Vetorial" />
+
+                        <RadioButton
+                            android:id="@+id/radio42"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FF9800"
+                            android:text="Imagem de Satelite" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/button74"
+                        android:layout_width="270dp"
+                        android:layout_height="61dp"
+                        android:backgroundTint="#FF9800"
+                        android:text="Trafego"
+                        android:textSize="15sp"
+                        app:cornerRadius="50dp" />
+
+                    <CheckBox
+                        android:id="@+id/ligado"
+                        android:layout_width="259dp"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#FF9800"
+                        android:buttonTint="#FF9800"
+                        android:minHeight="48dp"
+                        android:text="Trafego" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

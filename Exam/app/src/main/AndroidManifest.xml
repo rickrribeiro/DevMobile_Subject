@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Exam">
         <activity
+            android:name=".MapsActivityJava"
+            android:exported="true" />
+        <activity
             android:name=".ConfigPageJava"
             android:exported="true" />
         <activity
