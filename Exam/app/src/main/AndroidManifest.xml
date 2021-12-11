@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Exam">
         <activity
+            android:name=".ConfigPageJava"
+            android:exported="true" />
+        <activity
+            android:name=".HistoryActivityJava"
+            android:exported="true" />
+        <activity
             android:name=".GNSSLocationJava"
             android:exported="true" />
         <activity
